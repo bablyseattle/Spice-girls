@@ -1,0 +1,7 @@
+<h2>Meet Our Team </h2>
+
+<div *ngFor="let member of members | async" (click)="showDetails(member)" class="panel panel-default">
+	<div class="panel-body">
+		<h3>{{member.name}} loves <i>{{member.favCusine}}</i> cusine</h3>
+	</div>
+</div>

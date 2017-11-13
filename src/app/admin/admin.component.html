@@ -1,0 +1,22 @@
+<h3>Add New Member to team</h3>
+<div>
+  <div>
+    <label>Member Name:</label>
+    <br>
+    <input #newName>
+  </div>
+
+  <div>
+    <label>Member Favorite Cusine:</label>
+    <br>
+    <input #newCusine>
+  </div>
+
+  <div>
+    <label>Member About:</label>
+    <br>
+    <textarea #newDescription></textarea>
+  </div>
+
+  <button (click)="submitForm(newName.value, newCusine.value, newDescription.value); newName.value=''; newCusine.value=''; newDescription.value=''">Add</button>
+</div>
