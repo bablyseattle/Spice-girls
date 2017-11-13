@@ -15,13 +15,15 @@ export class TeamComponent implements OnInit {
   constructor(private router: Router, private memberService: MemberService) { }
 
   members: FirebaseListObservable<any[]>;
+  currentRoute: string = this.router.url;
+
 
   ngOnInit() {
     this.members = this.memberService.getMembers();
   }
 
   showDetails(clickedMember){
-  	// this.router.navigate(['members', clickedMember.id])
+  	this.router.navigate(['members', clickedMember.$key])
   }
 
 }

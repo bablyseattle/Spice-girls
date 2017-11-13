@@ -20,11 +20,19 @@ export class MemberService {
   }
 
   getMemberById(memberId: number){
-    // for (var i = 0; i <= MEMBERS.length - 1; i++) {
-    //   if (MEMBERS[i].id === memberId) {
-    //     return MEMBERS[i];
-    //   }
-    // }
+    return this.database.object('/members/' + memberId);
+  }
+
+  updateMember(localUpdatedMember){
+    var MemberEntryInFirebase = this.getMemberById(localUpdatedMember.$key);
+    MemberEntryInFirebase.update({name: localUpdatedMember.name,
+                                favCusine: localUpdatedMember.favCusine,
+                                about: localUpdatedMember.about});
+  }
+
+  deleteMember(localMemberToDelete){
+    var memberEntryInFirebase = this.getMemberById(localMemberToDelete.$key);
+    memberEntryInFirebase.remove();
   }
 
 }

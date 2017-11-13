@@ -1,7 +1,12 @@
 <h2>Meet Our Team </h2>
 
-<div *ngFor="let member of members | async" (click)="showDetails(member)" class="panel panel-default">
+<div *ngFor="let member of members | async"  class="panel panel-default">
 	<div class="panel-body">
-		<h3>{{member.name}} loves <i>{{member.favCusine}}</i> cusine</h3>
+		<h3 (click)="showDetails(member)">{{member.name}} loves <i>{{member.favCusine}}</i> cusine</h3>
+		<div *ngIf="currentRoute === '/admin'">
+      {{member.about}}
+      <hr>
+      <app-edit [selectedMember]="member"></app-edit>
+    </div>
 	</div>
 </div>
